@@ -1,0 +1,71 @@
+@import "./../../scss/definitions/variables.scss";
+.create-product {
+  margin: 100px 0 55px;
+  .image-placeholder,
+  .camera-placeholder {
+    position: relative;
+    height: 35px;
+    background: $primary;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: calc(50% - 22px);
+    display: inline-block;
+    padding: 5px 10px;
+    svg {
+      margin-top: 5px;
+    }
+    label {
+      display: inline-block;
+      vertical-align: super;
+      margin-left: 5px;
+      font-size: 0.9rem;
+      color: $white;
+    }
+    &:last-child {
+      margin-left: 4px;
+    }
+    input {
+      opacity: 0;
+      position: absolute;
+      height: 35px;
+      padding: 0;
+      margin: 0;
+      left: 0;
+      width: 100%;
+    }
+  }
+  .image-container {
+    display: flex;
+    width: calc(100% + 15px);
+    margin-left: -5px;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+    .uploaded-image {
+      position: relative;
+      margin: 5px;
+      width: calc(33% - 10px);
+      height: 100px;
+      background-position: center;
+      background-size: cover;
+      .remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: $primary;
+      }
+    }
+  }
+  button {
+    width: 100%;
+  }
+  div.controls {
+    margin: 0 10px;
+    ul {
+      li {
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+      }
+    }
+  }
+}

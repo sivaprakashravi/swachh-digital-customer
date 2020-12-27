@@ -1,0 +1,69 @@
+@import "./variables.scss";
+.table {
+  table {
+    border-collapse: collapse;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    tr {
+      th,
+      td {
+        padding: 8px;
+        font-weight: normal;
+        border: 0.5px solid #eee;
+      }
+      th {
+        background: $menu-bg;
+      }
+    } /* Fixed Headers */
+
+    th {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+
+    th[scope="row"] {
+      position: -webkit-sticky;
+      position: sticky;
+      left: 0;
+      z-index: 1;
+    }
+
+    th[scope="row"] {
+      vertical-align: top;
+      color: inherit;
+      background-color: inherit;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent calc(100% - 0.05em),
+        #d6d6d6 calc(100% - 0.05em),
+        #d6d6d6 100%
+      );
+    }
+
+    table:nth-of-type(2) th:not([scope="row"]):first-child {
+      left: 0;
+      z-index: 3;
+      background: linear-gradient(
+        90deg,
+        #666 0%,
+        #666 calc(100% - 0.05em),
+        #ccc calc(100% - 0.05em),
+        #ccc 100%
+      );
+    }
+
+    /* Strictly for making the scrolling happen. */
+
+    th[scope="row"] + td {
+      min-width: 24em;
+    }
+
+    th[scope="row"] {
+      min-width: 20em;
+    }
+  }
+}

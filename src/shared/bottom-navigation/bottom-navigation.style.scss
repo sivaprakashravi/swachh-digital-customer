@@ -1,0 +1,16 @@
+@import "./../../scss/definitions/variables.scss";
+.bottom-navigation {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background: $white;
+    box-shadow: -1px -1px 25px 0px #ccc;
+    ul {
+        text-align: center;
+        li {
+            display: inline-block;
+            width: calc(100% / 5);
+            padding: 10px 0;
+        }
+    }
+}

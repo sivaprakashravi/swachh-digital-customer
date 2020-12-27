@@ -1,0 +1,38 @@
+
+[
+    {
+        "id":1,
+        "status":"true",
+        "amount":"500",
+        "date":"14-52-2020",
+        "paymentType":"COD",
+        "paymentStatus":true,
+        "category":"soap",
+        "product_name":"Rexona",
+        "items_count":1,
+        "invoice":520314,
+        "tracking_link":"https://520314.com",
+        "customer_name":"shanu",
+        "customer_phone":9852147630,
+        "email":"shanu@gmail.com"
+        
+    },
+    
+    {
+        "id":2,
+        "status":"true",
+        "amount":"600",
+        "date":"16-52-2020",
+        "paymentType":"Online",
+        "paymentStatus":true,
+        "product_name":"Dove",
+        "category":"vegetables",
+        "items_count":5,
+        "invoice":520314,
+        "tracking_link":"https://520314.com",
+        "customer_name":"shanu",
+        "customer_phone":9852147630,
+        "email":"shanu@gmail.com"
+        
+    }
+]

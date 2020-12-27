@@ -1,0 +1,25 @@
+.toast-box {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  padding: 15px;
+  animation: animatebottom 0.4s;
+  label {
+    display: block;
+  }
+  .close {
+    float: right;
+  }
+  @keyframes animatebottom {
+    from {
+      bottom: -300px;
+      opacity: 0;
+    }
+    to {
+      bottom: 40px;
+      opacity: 1;
+    }
+  }
+}

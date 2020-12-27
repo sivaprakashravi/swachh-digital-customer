@@ -1,0 +1,121 @@
+@import "./../../scss/definitions/variables.scss";
+.navigation {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: $white;
+  top: 0;
+  left: -100%;
+  transition: background 1s ease, left 0.2s;
+  
+  &.show {
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .menu {
+    width: 75%;
+    background: $menu-bg;
+    height: 100%;
+    position: fixed;
+    .profile {
+      background: $white;
+      color: $black;
+      width: calc(60% - 20px);
+      padding: 10px;
+      border-radius: 0 0 30px;
+      span {
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 5px 10px;
+        background: $menu-bg;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        vertical-align: sub;
+      }
+      label {
+        display: inline-block;
+        font-size: 0.9rem;
+        i {
+          display: block;
+          font-size: 0.7rem;
+          color: #aaa;
+        }
+      }
+    }
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: $black;
+    }
+    ul {
+      border-radius: 5px; 
+      &.sub-nav {
+        background: $whiteOP1;
+      }     
+      li {
+        display: block;
+        padding: 0 5px;
+        color: $white;
+        border-left: 2.5px solid $primary;
+        font-size: 0.8rem;
+        line-height: 35px;
+        &.active {
+          font-weight: bold;
+          border-left: 2.5px solid $white;
+        }
+      }
+      span {
+        &.none {
+          display: none;
+        }
+      }
+    }
+    > ul {
+      margin: 5px;
+      overflow: auto;
+      height: calc(100% - 175px);
+      background: $primary;
+    }
+  }
+  .overlay {
+    width: 25%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background: none;
+    height: 100%;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: calc(75% - 20px);
+    padding: 10px;
+    div {
+      margin: 0;
+      margin-bottom: 20px;
+      padding: 0;
+      color: $black;
+      background: $white;
+      padding: 5px 10px;
+      font-size: 1rem;
+      display: inline-block;
+      border-radius: 5px;
+      * {
+        vertical-align: bottom;
+      }
+    }
+    i {
+      font-size: 0.7rem;
+      color: #aaa;
+      font-style: normal;
+      display: block;
+      label {
+        float: right;
+      }
+    }
+  }
+}

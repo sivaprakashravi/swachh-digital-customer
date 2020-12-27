@@ -1,0 +1,40 @@
+@import "./../../../scss/definitions/variables.scss";
+.order-edit {
+    margin: 100px 0 55px;
+    .option-view{
+      display: flex;
+    .options {
+      display: inline-block !important;
+      width: 50%;
+      label {
+        margin: 0px 0 0 5px;
+      }
+      svg {
+        vertical-align: sub;
+      }
+    }
+  }
+    div.input{ 
+        ul {
+        li {
+          display: block;
+          margin: 0 10px 10px 10px;
+          position: relative;
+          label {
+            display: inline-block;
+            vertical-align: super;
+            margin-left: 4px;
+            color: grey;
+          }
+          input {
+            text-indent: 6px;
+          }
+        }
+      }
+      button {
+        width: 100%;
+        padding: 15px;
+        margin: 5px;
+      }
+    }
+}

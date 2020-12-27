@@ -1,0 +1,45 @@
+
+[
+
+
+    {
+        "id":1,
+        "name":"Santoor",
+        "price":"500",
+        "discount":"Rs. 20",
+        "category":"soap"
+        
+    },
+    {
+        "id":2,
+        "name":"Play Boy",
+        "price":"400",
+        "discount":"Rs. 20",
+        "category":"soap"
+        
+    },
+    {
+        "id":3,
+        "name":"Lux",
+        "price":"300",
+        "discount":"Rs. 20",
+        "category":"soap"
+        
+    },
+    {
+        "id":4,
+        "name":"Mysore",
+        "price":"200",
+        "discount":"Rs. 20",
+        "category":"soap"
+        
+    },
+    {
+        "id":5,
+        "name":"Dove",
+        "price":"250",
+        "discount":"Rs. 20",
+        "category":"soap"
+        
+    }
+]

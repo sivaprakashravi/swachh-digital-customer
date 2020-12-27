@@ -1,0 +1,19 @@
+@import "./../../scss/definitions/variables.scss";
+.header {
+    height: 40px;
+    padding: 5px 0;
+    background: $primary;
+    color: $white;
+    // color: $primary;
+    // background: $white;
+    // box-shadow: -1px -1px 25px 0px #ccc;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    span {
+        display: inline-block;
+        vertical-align: super;
+        font-size: 1.3rem;
+    }
+}

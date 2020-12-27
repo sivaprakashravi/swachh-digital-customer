@@ -1,0 +1,348 @@
+@import "./../../scss/definitions/variables.scss";
+
+.order {
+  margin: 90px 0 55px;
+  .sub-header {
+    label {
+      display: block;
+    }
+    span {
+      float: right;
+    }
+  }
+  .reject-modal {
+    border: 0.5px solid lightgrey;
+    border-radius: 5px;
+    padding: 15px 15px 15px 15px;
+    margin: 150px 0 15px 65px;
+    position: fixed;
+    background-color: white;
+    //@debug background-attachment: fixed;
+    ul {
+      li {
+        display: block;
+        font-size: 0.9rem;
+        button{
+          float: right;
+          margin: 10px;
+        }
+        label {
+          font-size: 0.8rem;
+          padding: 2px 5px;
+          color: #4caf50;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+  .details {
+    margin: 10px;
+    .order-date {
+      padding: 15px 0 15px 5px;
+      font-size: 0.9rem;
+      label {
+        padding: 5px;
+        border-radius: 3px;
+        float: right;
+        margin-top: -5px;
+        &.New {
+          background: $new;
+          color: $white;
+        }
+        &.Reject {
+          background: $reject;
+          color: $white;
+        }
+        &.Accept {
+          background: $accept;
+          color: $white;
+        }
+        &.Shipped {
+          background: $shipped;
+        }
+        &.Delivered {
+          background: $delivered;
+          color: $white;
+        }
+      }
+    }
+    a {
+      font-size: 0.8rem;
+      color: $primary;
+      float: left;
+      margin-left: 15px;
+    }
+    ul.status {
+      display: block;
+      li {
+        text-align: center;
+        position: relative;
+        svg {
+          filter: drop-shadow(10px 0 5px $lbl-grey);
+        }
+        label {
+          display: block;
+          font-size: 1.1rem;
+        }
+      }
+    }
+    table {
+      font-size: 0.9rem;
+      margin-top: 20px;
+      th,
+      td {
+        padding: 5px;
+        text-align: left;
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+    .customer {
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0px 5px 10px -5px #aaaaaa;
+      border: 1px solid #eee;
+      div {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 0.6rem;
+        margin-right: 10px;
+        text-transform: uppercase;
+        label {
+          display: block;
+          font-size: 0.8rem;
+        }
+      }
+      .call {
+        float: right;
+        margin: 16px;
+      }
+    }
+  }
+  .sum-download {
+    margin: 0 10px;
+    .download {
+      padding: 10px 0;
+      float: left;
+      svg {
+        vertical-align: bottom;
+        path {
+          stroke: red;
+        }
+      }
+    }
+    .by {
+      font-size: 0.9rem;
+      padding: 10px 5px;
+      float: right;
+      svg {
+        vertical-align: bottom;
+      }
+    }
+  }
+  .actions {
+    margin: 0 30px;
+    position: fixed;
+    width: calc(100% - 60px);
+    bottom: 65px;
+    li {
+      width: calc(50% - 5px);
+      display: inline-block;
+      text-align: center;
+      border-radius: 5px;
+      &:first-child {
+        background: #ddffde;
+        margin-right: 5px;
+      }
+      &:last-child {
+        background: #ffd8cb;
+        margin-left: 5px;
+      }
+      button {
+        margin: 0 15px;
+        border-radius: 50%;
+        label {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.order-list {
+  border: 0.5px solid lightgrey;
+  border-radius: 5px;
+  padding: 5px 15px 5px 5px;
+  margin: 5px 0 5px;
+  position: relative;
+  .menu {
+    float: right;
+    margin: 5px -10px 0;
+  }
+  .list-view {
+    padding: 5px 10px;
+    ul {
+      li {
+        display: block;
+        font-size: 0.9rem;
+        &:first-child {
+          vertical-align: top;
+          height: 22px;
+        }
+        svg:first-child {
+          float: left;
+          margin-left: -5px;
+        }
+        .edit {
+          float: right;
+          fill: $primary;
+        }
+        label {
+          font-size: 0.8rem;
+          padding: 2px 5px;
+          color: #4caf50;
+          border-radius: 5px;
+        }
+        span {
+          padding: 5px;
+          border-radius: 3px;
+          float: right;
+          margin-top: -5px;
+          &::after {
+            display: inline-block;            
+            content: '';
+            height: 10px;
+            width: 10px;
+            border-radius: 5px;
+            margin-left: 5px;
+            vertical-align: baseline;
+          }
+          &.New {
+            &::after {
+              background: $new;
+            }
+          }
+          &.Reject {
+            &::after {
+              background: $reject;
+            }
+          }
+          &.Accept {
+            &::after {
+              background: $accept;
+            }
+          }
+          &.Shipped {
+            &::after {
+              background: $shipped;
+            }
+          }
+          &.Delivered {
+            &::after {
+              background: $delivered;
+            }
+          }
+        }
+      }
+    }
+  }
+  .view {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 20px;
+    background: #eee;
+    height: 100%;
+    z-index: 1;
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      fill: $primary;
+    }
+  }
+  .actions {
+    margin-left: 10px;
+    button {
+      font-size: 0.8rem;
+      padding: 5px;
+      border-radius: 5px;
+      color: #fff;
+      margin-right: 5px;
+      &.accept {
+        background: #4caf50;
+      }
+      &.reject {
+        background: #eca202;
+      }
+    }
+  }
+}
+.container {
+  display: flexbox;
+  margin: 20px;
+  margin-top: 50px;
+  .head-text {
+    background-color: lightgray;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .head-text:active {
+    background-color: blue;
+    color: white;
+  }
+  .headtext-container {
+    display: flexbox;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .button {
+    padding: 6px;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    font-size: 16px;
+    background: $primary;
+    margin-left: 20px;
+    color: $white;
+    width: 25%;
+    margin-top: 10px;
+  }
+}
+
+.orders {
+  margin: 100px 0 55px;
+  .sub-header {
+    .i-filter {
+      margin: 0;
+      float: right;
+    }
+  }
+  .list {
+    margin: 0 10px;
+  }
+  .filter {
+    margin: 0 10px;
+    ul {
+      li {
+        display: inline-block;
+      }
+    }
+    select {
+      margin: -10px 0 10px;
+    }
+    .dp {
+      margin-bottom: 10px;
+    }
+  }
+  .rdrCalendarWrapper,
+  .rdrMonths,
+  .rdrMonth {
+    width: 100%;
+    padding: 0;
+  }
+}

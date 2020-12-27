@@ -1,0 +1,121 @@
+@import "./../../scss/definitions/variables.scss";
+.greet {
+    margin: 20px 15px 60px;
+}
+h1 {
+  color: $primary;
+}
+.login {
+  margin: 15px;
+  width: calc(100% - 30px);
+  label {
+    display: block;
+    font-size: 1rem;
+    color: $lbl-grey;
+  }
+  input {
+    padding: 8px 8px 8px 0;
+    display: block;
+    width: calc(100% - 10px);
+    border: none;
+    border-bottom: 2px solid $border-grey;
+    font-size: 1rem;
+    &:focus {
+      border-bottom-color: $primary;
+    }
+    &[type="password"] {
+      padding: 8px 28px 8px 0;
+      width: calc(100% - 30px);
+    }
+  }
+  div.controls {
+    .external-auth,
+    .otp {
+      button {
+        padding: 5px;
+        margin-top: 20px;
+      }
+    }
+    .external-auth {
+      button {
+        border: 1px solid $border-grey;
+        border-radius: 5px;
+        width: calc(50% - 5px);
+        display: inline-block;
+        &:first-child {
+          margin-right: 5px;
+        }
+        &:last-child {
+          margin-left: 5px;
+        }
+        svg {
+          vertical-align: bottom;
+        }
+      }
+    }
+    .otp {
+      text-align: center;
+      margin-top: 10px;
+      button {
+        color: $primary;
+        font-weight: bold;
+      }
+    }
+    ul {
+      li {
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        span {
+          font-size: 1rem;
+          color: $lbl-grey;
+          label {
+            display: inline-block;
+            vertical-align: super;
+            margin-left: 3px;
+          }
+        }
+        span,
+        a,
+        label {
+          font-weight: bold;
+        }
+        a.fp {
+          float: right;
+          font-size: 1rem;
+        }
+        button {
+          width: 100%;
+          margin-top: 25px;
+          padding: 15px;
+        }
+        &.sign-up {
+          text-align: center;
+          margin-top: 25px;
+          label {
+            display: inline-block;
+            color: $primary;
+          }
+        }
+        &.mobile-no {
+          &::after {
+            content: "+91";
+            position: absolute;
+            top: 26px;
+            left: 0;
+            color: $lbl-grey;
+          }
+          input {
+            text-indent: 32px;
+          }
+        }
+        .eye {
+          position: absolute;
+          top: 24px;
+          right: 10px;
+          fill: $primary;
+        }
+      }
+    }
+  }
+}

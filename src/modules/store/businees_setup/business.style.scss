@@ -1,0 +1,36 @@
+@import "./../../../scss/definitions/variables.scss";
+
+.business-setup {
+  margin: 95px 0 55px;
+  .sub-header {
+    span {
+      float: right;
+    }
+  }
+  .privacy {
+    color: #3f51b5;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: sans-serif;
+  }
+  ul {
+    li {
+      display: block;
+      margin: 0 10px 10px 10px;
+      position: relative;
+      label {
+        display: inline-block;
+        vertical-align: super;
+        margin-left: 2px;
+        color: grey;
+      }
+      button {
+        width: 100%;
+        margin-top: 15px;
+        padding: 15px;
+        display: inline;
+      }
+    }
+  }
+
+}

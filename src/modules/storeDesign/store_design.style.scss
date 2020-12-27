@@ -1,0 +1,17 @@
+@import "./../../scss/definitions/variables.scss";
+
+.store-design{
+    margin: 55px 0px 55px;
+    .item-view{
+        display: flex;
+        padding: 20px;
+        margin: 0 10px 0 10px;
+        border-bottom: 0.5px solid lightgray;
+        label{
+            padding: 10px 0 0 20px;
+            display: block;
+            font-size: 1rem;
+        }
+    }
+
+}

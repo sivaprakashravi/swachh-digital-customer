@@ -1,0 +1,17 @@
+@import './definitions/variables.scss';
+button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: none;
+  font-size: 1rem;
+  &.primary {
+    background: $primary;
+    color: $white;
+  }
+  &:disabled {
+    background: $lbl-grey;
+    cursor: not-allowed;
+  }
+}
+
