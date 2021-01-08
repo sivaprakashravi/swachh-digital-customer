@@ -3,8 +3,9 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    background: $white;
-    box-shadow: -1px -1px 25px 0px #ccc;
+    background: $border-grey;
+    font-size: 0.9rem;
+    padding: 5px;
     ul {
         text-align: center;
         li {

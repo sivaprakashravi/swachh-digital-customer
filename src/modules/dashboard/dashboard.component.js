@@ -2,60 +2,34 @@ import React from 'react';
 import { FaShareAlt } from 'react-icons/fa';
 import './dashboard.style.scss';
 import { IoMdClose } from "react-icons/io";
-import { FcPlus, FcLike, FcKey, FcPaid, FcButtingIn, FcBullish, FcServices, FcIdea, FcMultipleInputs } from "react-icons/fc";
+import { RiCheckboxLine, RiCheckboxBlankLine } from "react-icons/ri";
+import { BiRupee } from "react-icons/bi";
 import Carousel from 're-carousel';
 import IndicatorDots from './indicators';
 import storage from '../../services/storage-manager.service';
 import translate from '../../locale/translate';
+import fetchApi from '../../services/fetchsvc.service';
+import * as _ from 'lodash';
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showActions: true,
-            services: [{
-                label: 'ADDPRODUCT',
-                route: 'CreateProduct',
-                icon: <FcPlus size="35px" />
-            }, {
-                label: 'OFFERS',
-                route: '',
-                icon: <FcLike size="35px" />
-            }, {
-                label: 'ACCESSMANAGEMENT',
-                route: '',
-                icon: <FcKey size="35px" />
-            }, {
-                label: 'ORDERS',
-                route: 'orderlist',
-                icon: <FcPaid size="35px" />
-            }, {
-                label: 'CUSTOMERS',
-                route: '',
-                icon: <FcButtingIn size="35px" />
-            }, {
-                label: 'STORESETUP',
-                route: '',
-                icon: <FcServices size="35px" />
-            }, {
-                label: 'REPORTS',
-                route: '',
-                icon: <FcBullish size="35px" />
-            }, {
-                label: 'STOREDESIGN',
-                route: 'storeDesign',
-                icon: <FcIdea size="35px" />
-            }, {
-                label: 'MORESERVICES',
-                route: '',
-                icon: <FcMultipleInputs size="35px" />
-            }]
+            products: [],
+            categories: [],
+            productsView: []
         };
     }
 
-    componentDidMount() {
-        const store = storage.get('storeUser');
-        const { StoreLink } = store;
-        this.setState({ StoreLink });
+    async componentDidMount() {
+        const products = await fetchApi.get('getProducts?StoreId=Demo1234');
+        let categories = products.map(p => p.Category);
+        categories = _.uniq(categories);
+        categories = categories.map(c => {
+            return { label: c, enabled: true }
+        });
+        this.setState({ products, categories, productsView: products });
+
     }
 
     banner() {
@@ -65,37 +39,29 @@ class Dashboard extends React.Component {
                 <Carousel loop={true} auto={true} widgets={[IndicatorDots]}>
                     {carousel.map(s => {
                         // android_asset/www -> for android build
-                        return <div key={s} className="scroll-item frame" style={{'backgroundImage': `url(/images/banner/${s}.jpg)`}}></div>
+                        return <div key={s} className="scroll-item frame" style={{ 'backgroundImage': `url(/images/banner/${s}.jpg)` }}></div>
                     })}
                 </Carousel>
             </div>
         )
     }
 
-    notify() {
+    products() {
         return (
-            this.state.showActions ?
-                <div className="store-kyc warning">
-                    <h5>Pending Action <IoMdClose size="18px" style={{ float: 'right' }} onClick={() => {
-                        this.setState({ showActions: false })
-                    }} /></h5>
-                    <ul>
-                        <li>Payment setup</li>
-                        <li>Store details</li>
-                        <li>Store theme</li>
-                        <li>++ include other steps</li>
-                    </ul>
-                </div> : ''
-        )
-    }
-
-    services() {
-        return (
-            <div className="services">
+            <div className="product">
+                <h3>Store Products</h3>
                 <ul>
                     {
-                        this.state.services.map(s => {
-                            return <li key={s.label} onClick={() => this.props.history.push(s.route)}>{s.icon}<label>{translate(s.label)}</label></li>
+                        this.state.productsView.map((s, key) => {
+                            return <li key={s.ProductName + key}>
+                                <img src={s.Imageurl} alt={s.ProductName} />
+                                <div className="name">{s.ProductName}</div>
+                                <div className="category">{s.Category}</div>
+                                <div className="primary-k">                                    
+                                    <div className="add">Add to cart</div>
+                                    <div className="price"><BiRupee size="20px" />{s.RetailPrice}</div>
+                                </div>
+                            </li>
                         })
                     }
                 </ul>
@@ -103,14 +69,44 @@ class Dashboard extends React.Component {
         )
     }
 
+    categoryToggle(category) {
+        const categories = this.state.categories;
+        const selectedCategory = categories.find(c => c === category);
+        selectedCategory.enabled = !selectedCategory.enabled;
+        const activeCategories = categories.filter(c => c.enabled);
+        const products = this.state.products;
+        const productsView = products.filter(p => activeCategories.find(a => a.label === p.Category));
+        this.setState({ categories, productsView });
+    }
+
+    filter() {
+        return (<div className="filter">
+            <h3>Categories</h3>
+            <ul>
+                {
+                    this.state.categories.map((c, key) => {
+                        return <li key={c.label + key} onClick={() => { this.categoryToggle(c) }}>
+                            {!c.enabled ? <RiCheckboxBlankLine size="22px" /> : <RiCheckboxLine size="22px" />}
+                            {c.label}
+                        </li>
+                    })
+                }
+            </ul>
+        </div>)
+    }
+
     render() {
-        const { StoreLink } = this.state
         return (
             <div className="dashboard">
                 {this.banner()}
-                <div className="store-url"><label>{StoreLink}</label> <FaShareAlt size="24px" style={{ float: 'right' }} /></div>
-                {this.notify()}
-                {this.services()}
+                <div className="products-view">
+                    {this.state.productsView && this.state.productsView.length ?
+                        <>
+                            {this.filter()}
+                            {this.products()}
+                        </>
+                        : <div>No Products available</div>}
+                </div>
             </div>
         );
     }

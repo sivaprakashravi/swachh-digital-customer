@@ -32,14 +32,8 @@ class BottomNav extends React.Component {
 
     render() {
         return (
-            <div className="bottom-navigation">
-                <ul>
-                    {
-                        this.state.list.map((l, i) => {
-                            return <li key={l.icon + i}>{l.icon}</li>
-                        })
-                    }
-                </ul>
+            <div className="bottom-navigation">                 
+                 &copy; {new Date().getFullYear()} Swachh Digital. All Rights Reserved.
             </div>
         );
     }

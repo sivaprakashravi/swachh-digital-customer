@@ -35,11 +35,11 @@ function App(e) {
     <main>
       <AuthContext.Provider>
         <LocalProvider locale={'en'}>
-        {showHeader(e.location.pathname) ? <Header /> : null}
+        <Header />
         <Switch>
-          <Route path="/" component={Login} exact />
+          <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/dashboard" component={Dashboard} /> v
+          <Route path="/" component={Dashboard} exact />
           <Route path="/productlist" component={ProductListScreen} />
           <Route path="/orderDetails" component={OrderDetails} />
           <Route path="/orderlist" component={OrderScreen} />
@@ -52,7 +52,7 @@ function App(e) {
           <Route path="/userManage" component={UserManageScreen} />
           <Route path="/storeDesign" component={Storedesign} />
         </Switch>
-        {showHeader(e.location.pathname) ? <BottomNav /> : null}
+        <BottomNav />
         {promiseInProgress ? <Loader /> : null}
         </LocalProvider>
       </AuthContext.Provider>

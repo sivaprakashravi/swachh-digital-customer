@@ -1,85 +1,232 @@
 @import "./../../scss/definitions/variables.scss";
-.dashboard {
-  margin: 50px 0 30px;
-  padding: 15px;
-  .scroll-banner {
-    height: 150px;
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: -1px -1px 25px 0px #ccc;
-    position: relative;
-    overflow: hidden;
-    background: $menu-bg;
-    .scroll-item {
-      height: 100%;
-      text-align: center;
-      background-position: center;
-      background-size: cover;
-    }
-    ul {
-      text-align: center;
-      bottom: 5px;
-      position: absolute;
+@media only screen and (max-width: 768px) {
+  .dashboard {
+    margin: 50px 0 30px;
+    padding: 15px;
+    .scroll-banner {
+      height: 150px;
       width: 100%;
-      li {
-        height: 5px;
-        width: 5px;
-        border-radius: 50%;
-        display: inline-block;
-        margin: 2px;
-        background: $lbl-grey;
-        &.active {
-          background: $primary;
-        }
-      }
-    }
-  }
-  .store-url {
-    margin-top: 15px;
-    background: $primary;
-    color: $white;
-    padding: 15px;
-    border-radius: 5px;
-    label {
-      display: inline-block;
-      font-weight: bold;
-      font-size: 0.8rem;
-    }
-  }
-  .store-kyc {
-    padding: 15px;
-    margin-top: 15px;
-    h5 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-    ul {
-      display: block;
-      li {
-        list-style-type: decimal;
-        margin-left: 15px;
-      }
-    }
-  }
-  .services {
-    margin-top: 15px;
-    ul {
-      display: flex;
-      flex-wrap: wrap;
-      li {
-        width: calc(33% - 20px);
-        display: inline-block;
+      border-radius: 15px;
+      box-shadow: -1px -1px 25px 0px #ccc;
+      position: relative;
+      overflow: hidden;
+      background: $menu-bg;
+      .scroll-item {
+        height: 100%;
         text-align: center;
-        box-shadow: -1px -1px 25px 0px #ccc;
-        padding: 15px 5px;
-        border-radius: 5px;
-        margin-bottom: 15px;
-        label {
-          display: block;
-          font-size: 0.75rem;
+        background-position: center;
+        background-size: cover;
+      }
+      ul {
+        text-align: center;
+        bottom: 5px;
+        position: absolute;
+        width: 100%;
+        li {
+          height: 5px;
+          width: 5px;
+          border-radius: 50%;
+          display: inline-block;
+          margin: 2px;
+          background: $lbl-grey;
+          &.active {
+            background: $primary;
+          }
         }
-        &:nth-child(3n + 2) {
-          margin: 0 15px 15px;
+      }
+    }
+    .store-url {
+      margin-top: 15px;
+      background: $primary;
+      color: $white;
+      padding: 15px;
+      border-radius: 5px;
+      label {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+    }
+    .store-kyc {
+      padding: 15px;
+      margin-top: 15px;
+      h5 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      ul {
+        display: block;
+        li {
+          list-style-type: decimal;
+          margin-left: 15px;
+        }
+      }
+    }
+    .services {
+      margin-top: 15px;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          width: calc(33% - 20px);
+          display: inline-block;
+          text-align: center;
+          box-shadow: -1px -1px 25px 0px #ccc;
+          padding: 15px 5px;
+          border-radius: 5px;
+          margin-bottom: 15px;
+          label {
+            display: block;
+            font-size: 0.75rem;
+          }
+          &:nth-child(3n + 2) {
+            margin: 0 15px 15px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 769px) {
+  .dashboard {
+    margin: 50px auto 30px;
+    height: 100%;
+    .scroll-banner {
+      height: 225px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: $menu-bg;
+      .scroll-item {
+        height: 100%;
+        text-align: center;
+        background-position: center;
+        background-size: cover;
+      }
+      ul {
+        text-align: center;
+        bottom: 5px;
+        position: absolute;
+        width: 100%;
+        li {
+          height: 5px;
+          width: 5px;
+          border-radius: 50%;
+          display: inline-block;
+          margin: 2px;
+          background: $lbl-grey;
+          &.active {
+            background: $primary;
+          }
+        }
+      }
+    }
+    .store-url {
+      margin-top: 15px;
+      background: $primary;
+      color: $white;
+      padding: 15px;
+      border-radius: 5px;
+      label {
+        display: inline-block;
+        font-weight: bold;
+        font-size: 0.8rem;
+      }
+    }
+    .store-kyc {
+      padding: 15px;
+      margin-top: 15px;
+      h5 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      ul {
+        display: block;
+        li {
+          list-style-type: decimal;
+          margin-left: 15px;
+        }
+      }
+    }
+    .products-view {
+      height: calc(100% - 250px);
+      h3 {
+        margin: 10px 0 0 10px;
+      }
+      .filter {
+        width: 300px;
+        display: inline-block;
+        vertical-align: top;
+        height: 100%;
+        background: #f3f3f3;
+        ul {
+          margin: 10px;
+          li {
+            padding: 5px 0;
+            svg {
+              vertical-align: sub;
+            }
+          }
+        }
+      }
+      .product {
+        vertical-align: top;
+        width: calc(100% - 300px);
+        display: inline-block;
+        height: 100%;
+        ul {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          li {
+            box-sizing: border-box;
+            margin: 10px 10px 0 0;
+            display: inline-block;
+            width: calc(25% - 12.5px);
+            color: $black;
+            padding: 10px;
+            border: 1px solid #f3f3f3;
+            border-radius: 3px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            background: $white;
+            &:hover {
+              z-index: 1;
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+            &:nth-child(4n) {
+              margin-right: 0;
+            }
+            &:nth-child(4n + 1) {
+              margin-left: 10px;
+            }
+            .name {
+              font-size: 0.9rem;
+              padding: 5px 0;
+            }
+            .category {
+              font-size: 0.7rem;
+              color: #ccc;
+              border-radius: 5px;
+              display: inline-block;
+            }
+            .primary-k {
+              margin-top: 10px;
+              .add {
+                display: inline-block;
+                padding: 5px;
+                font-size: 0.7rem;
+                background: #dddd47;
+                border-radius: 5px;
+              }
+              .price {
+                float: right;
+                svg {
+                  vertical-align: sub;
+                }
+              }
+            }
+          }
         }
       }
     }
