@@ -212,6 +212,9 @@
             }
             .primary-k {
               margin-top: 10px;
+              svg {
+                vertical-align: bottom;
+              }
               .add {
                 display: inline-block;
                 padding: 5px;

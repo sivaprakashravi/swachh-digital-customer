@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 import { BsQuestionCircle, BsPeopleCircle } from "react-icons/bs";
 import { HiOutlineShoppingCart } from "react-icons/hi";
@@ -6,52 +6,41 @@ import './header.style.scss';
 import SideNav from './../side-navigation/side-navigation.component';
 import storage from '../../services/storage-manager.service';
 import translate from '../../locale/translate';
-class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showNav: false,
-            activeNav: {}
-        };
-    }
+import { store } from "./../../modules/utils/App-state-provider";
+function Header() {
+    const initialState = {
+        showNav: false,
+        activeNav: {}
+    };
+    const globalState = useContext(store); 
+    const [data, setData] = useState(initialState);
 
-    componentDidMount() {
-        // const store = storage.get('storeUser');
-        // const { StoreName } = store;
-        // this.setState({ StoreName });
+    var toggleNav = () => {
+        setData({ showNav: !data.showNav })
     }
-
-    toggleNav(self) {
-        self.setState({ showNav: !self.state.showNav })
-    }
-    updateNavSelection(e) {
+    var updateNavSelection = (e) => {
         this.setState({ activeNav: e });
     }
-    render() {
-        const self = this;
-        const { StoreName } = self.state
-        return (
-            <div className="header">
-                {
-                    self.state.showNav ?
-                        <IoMdClose size="26px" onClick={() => { self.setState({ showNav: false }) }} style={{ margin: '6px 10px 0' }} /> :
-                        <IoMdMenu size="26px" onClick={() => { self.setState({ showNav: true }) }} style={{ margin: '6px 10px 0' }} />
-                }
-                <span>{translate("APPNAME", { name: StoreName })} {self.state.showNav} </span>
-                {self.state.showNav ? <SideNav selected={(e) => {
-                    self.updateNavSelection(e)
-                }} active={self.state.activeNav} show={self.state.showNav} toggle={() => {
-                    self.toggleNav(self)
-                }} /> : null}
-                <input type="search"></input>
-                <div className="user-profile">
-                    <div className="cart"><span>10 Items in Cart</span><HiOutlineShoppingCart size="24px" /></div>
-                    <BsPeopleCircle size="24px" />
-                    <BsQuestionCircle size="24px" />
-                </div>
+    return (
+        <div className="header">
+            {
+                data.showNav ?
+                    <IoMdClose size="26px" onClick={() => { setData({ showNav: false }) }} style={{ margin: '6px 10px 0' }} /> :
+                    <IoMdMenu size="26px" onClick={() => { setData({ showNav: true }) }} style={{ margin: '6px 10px 0' }} />
+            }
+            <span>{translate("APPNAME", { name: 'test' })} {data.showNav} </span>
+            {data.showNav ? <SideNav selected={(e) => {
+                updateNavSelection(e)
+            }} active={data.activeNav} show={data.showNav} toggle={() => {
+                toggleNav()
+            }} /> : null}
+            <input type="search"></input>
+            <div className="user-profile">
+                <div className="cart"><span>Items in Cart</span><HiOutlineShoppingCart size="24px" /></div>
+                <BsPeopleCircle size="24px" />
+                <BsQuestionCircle size="24px" />
             </div>
-        );
-    }
+        </div>
+    );
 }
-
 export default Header;

@@ -18,6 +18,7 @@ import { MyaccountScreen } from './modules/store/account/my_account.component';
 import { UserManageScreen } from './modules/store/user_manage/user_manage.component';
 import Storedesign from './modules/storeDesign/store_design.component'
 import { AuthContext } from './modules/utils/auth-context';
+import  { StateProvider } from './modules/utils/App-state-provider';
 import Loader from './components/loader/loader.component';
 import { usePromiseTracker } from "react-promise-tracker";
 import {LocalProvider} from './locale'
@@ -33,7 +34,7 @@ function App(e) {
   const { promiseInProgress } = usePromiseTracker();
   return (
     <main>
-      <AuthContext.Provider>
+      <StateProvider>
         <LocalProvider locale={'en'}>
         <Header />
         <Switch>
@@ -55,7 +56,7 @@ function App(e) {
         <BottomNav />
         {promiseInProgress ? <Loader /> : null}
         </LocalProvider>
-      </AuthContext.Provider>
+      </StateProvider>
     </main>
   )
 }
